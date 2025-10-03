@@ -23,21 +23,22 @@
         <module name="product" />
         <module name="User" />
       </profile>
-      <profile name="Annotation profile for config-demo" enabled="true">
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
-        </processorPath>
-        <module name="configdemo" />
+        <module name="eureka" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="configdemo" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="User" options="-parameters" />
       <module name="configdemo" options="-parameters" />
+      <module name="eureka" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="product" options="-parameters" />
     </option>
