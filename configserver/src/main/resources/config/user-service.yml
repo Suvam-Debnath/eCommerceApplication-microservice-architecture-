@@ -1,8 +1,11 @@
+server:
+  port: 8082
+
 spring:
-  application:
-    name: user-service
-  config:
-    import: optional:configserver:http://localhost:8888
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/userdb
+      database: userdb
 
 # Uncomment if using H2
 # spring:
