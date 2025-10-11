@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order
+    username: postgres
+    password: suvam123
+  jpa:
+    show-sql: true
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+# Uncomment if using H2
+# spring:
+#   h2:
+#     console:
+#       enabled: true
+#   datasource:
+#     url: jdbc:h2:mem:test
+#   jpa:
+#     show-sql: true
+#     hibernate:
+#       ddl-auto: create
+
+server:
+  port: 8084
