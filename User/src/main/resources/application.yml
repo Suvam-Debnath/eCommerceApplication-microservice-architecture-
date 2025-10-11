@@ -1,0 +1,35 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: user-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/userdb
+      database: userdb
+
+# Uncomment if using H2
+# spring:
+#   h2:
+#     console:
+#       enabled: true
+#   datasource:
+#     url: jdbc:h2:mem:test
+#   jpa:
+#     show-sql: true
+#     hibernate:
+#       ddl-auto: create
+
+# Uncomment if using PostgreSQL
+# spring:
+#   datasource:
+#     url: jdbc:postgresql://localhost:5432/userdb
+#     username: postgres
+#     password: suvam123
+#   jpa:
+#     show-sql: true
+#     database: POSTGRESQL
+#     hibernate:
+#       ddl-auto: update
+#     database-platform: org.hibernate.dialect.PostgreSQLDialect
