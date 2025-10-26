@@ -4,20 +4,8 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/userdb
+      uri: ${MONGO_URI}
       database: userdb
-
-# Uncomment if using H2
-# spring:
-#   h2:
-#     console:
-#       enabled: true
-#   datasource:
-#     url: jdbc:h2:mem:test
-#   jpa:
-#     show-sql: true
-#     hibernate:
-#       ddl-auto: create
 
 # Uncomment if using PostgreSQL
 # spring:
