@@ -6,6 +6,11 @@ spring:
     mongodb:
       uri: ${MONGO_URI}
       database: userdb
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 # Uncomment if using PostgreSQL
 # spring:
@@ -20,6 +25,11 @@ spring:
 #       ddl-auto: update
 #     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 eureka:
   client:
