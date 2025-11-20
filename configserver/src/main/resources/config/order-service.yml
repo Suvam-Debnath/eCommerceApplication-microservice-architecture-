@@ -33,3 +33,11 @@ eureka:
 
 app:
   message: "Hello User"
+
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 7
