@@ -23,6 +23,17 @@ spring:
           predicates:
             - Path=/api/orders/**, /api/cart/**
 
+        - id: eureka-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/main
+          filters:
+            - SetPath=/
+        - id: eureka-server-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+
 eureka:
   client:
     register-with-eureka: true
