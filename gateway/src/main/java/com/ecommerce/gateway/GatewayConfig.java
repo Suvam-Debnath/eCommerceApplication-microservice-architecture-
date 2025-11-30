@@ -4,6 +4,7 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 
 @Configuration
 public class GatewayConfig {
@@ -12,7 +13,10 @@ public class GatewayConfig {
         return builder.routes()
                 .route("product-service", r -> r
                         .path("/api/products/**")
-                        .filters(f->f.circuitBreaker(config -> config
+                        .filters(f->f.retry(retryConfig -> retryConfig
+                                        .setRetries(10)
+                                        .setMethods(HttpMethod.GET))
+                                .circuitBreaker(config -> config
                                 .setName("ecomBreaker")
                                 .setFallbackUri("forward:/fallback/products")))
                         .uri("lb://PRODUCT-SERVICE"))
