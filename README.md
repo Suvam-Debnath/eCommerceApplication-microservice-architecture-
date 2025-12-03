@@ -1,7 +1,7 @@
 <h1 align="center">🛒 Microservices-Based eCommerce Application</h1>
 
 <p align="center">
-A production-ready eCommerce platform built using Spring Boot Microservices with Kafka, Eureka, API Gateway, Config Server, Keycloak Authentication, and Zipkin.
+eCommerce platform built using Spring Boot Microservices with Kafka, Eureka, API Gateway, Config Server, Keycloak Authentication, and Zipkin.
 </p>
 
 <img width="1553" height="727" alt="ecom" src="https://github.com/user-attachments/assets/bd4a56cf-6259-4136-ad70-5539777fccc6" />
@@ -56,6 +56,8 @@ This system follows a fully decoupled microservices architecture, where each ser
   <li>✔️ Kafka-based notification system</li>
   <li>✔️ Load-balanced routing using API Gateway</li>
   <li>✔️ Secured endpoints using Keycloak</li>
+  <li>✔️ API rate limiting</li>
+  <li>✔️ Prometheus + Grafana monitoring</li>
 </ul>
 
 <hr/>
@@ -91,17 +93,4 @@ This system follows a fully decoupled microservices architecture, where each ser
 </ul>
 
 <hr/>
-
-<h2>💡 Future Enhancements</h2>
-
-<ul>
-  <li>🛡️ API rate limiting</li>
-  <li>📊 Prometheus + Grafana monitoring</li>
-  <li>🛍️ Cart Service</li>
-  <li>💳 Payment Gateway Integration</li>
-  <li>💼 Admin Dashboard</li>
-</ul>
-
-<hr/>
-
 
