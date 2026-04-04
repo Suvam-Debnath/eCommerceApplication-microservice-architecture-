@@ -1,5 +1,6 @@
 package com.ecommerce.order.services;
 
+import com.ecommerce.order.dtos.OrderCreatedEvent;
 import com.ecommerce.order.dtos.OrderItemDTO;
 import com.ecommerce.order.dtos.OrderResponse;
 import com.ecommerce.order.models.*;
@@ -9,7 +10,7 @@ import com.ecommerce.order.models.OrderStatus;
 import com.ecommerce.order.models.CartItem;
 import com.ecommerce.order.models.Order;
 import com.ecommerce.order.models.OrderItem;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -17,13 +18,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    private CartService cartService;
-
-    @Autowired
-    private OrderRepository orderRepository;
+    private final CartService cartService;
+    private final OrderRepository orderRepository;
 
     public Optional<OrderResponse> createOrder(String userId) {
         //validate for cart items
@@ -65,6 +64,19 @@ public class OrderService {
         //clear the cart
         cartService.clearCart(userId);
         return Optional.of(mapToOrderResponse(saveOrder));
+
+//        // Publish order created event
+//        OrderCreatedEvent event = new OrderCreatedEvent(
+//                savedOrder.getId(),
+//                savedOrder.getUserId(),
+//                savedOrder.getStatus(),
+//                mapToOrderItemDTOs(savedOrder.getItems()),
+//                savedOrder.getTotalAmount(),
+//                savedOrder.getCreatedAt()
+//        );
+//        streamBridge.send("createOrder-out-0", event);
+//
+//        return Optional.of(mapToOrderResponse(saveOrder));
     }
 
     private OrderResponse mapToOrderResponse(Order order) {

@@ -1,9 +1,13 @@
 services:
-  zipkin:
-    image: openzipkin/zipkin
-    container_name: zipkin
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
     ports:
-      - "9411:9411"
+      - "5672:5672"   # RabbitMQ Message Broker
+      - "15672:15672" # RabbitMQ Management UI (http://localhost:15672)
     networks:
-      - loki
-
+      - backend
+    restart: unless-stopped
