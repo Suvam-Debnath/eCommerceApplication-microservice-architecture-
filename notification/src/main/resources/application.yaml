@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: notification
+
+server:
+  port: 8086
